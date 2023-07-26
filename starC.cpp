@@ -24,7 +24,7 @@ int i;
   for (i = 0; i < width; ++i) 
     result += "*";
   result += "\n";
-  for (int i = 2; i < hIight; ++i)
+  for (int i = 2; i < height; ++i)
 
 
   {result += "*";
