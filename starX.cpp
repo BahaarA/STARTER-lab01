@@ -84,10 +84,10 @@ int main(int argc, char *argv[])
   }
 
   int width = stoi(argv[1]);
-  int height = stoi(argv[2]);
+
   // If the program is executed with parameters -1 -1 unit test
   // the starL() function using our automated test framework
-  if (width == -1 && height == -1)
+  if (width == -1)
   {
     runTests();
     exit(0);
