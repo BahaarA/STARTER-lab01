@@ -92,7 +92,7 @@ void assertEquals(string expected, string actual, string message = "")
   }
 }
 
-// Main function
+
 
 int main(int argc, char *argv[])
 {
