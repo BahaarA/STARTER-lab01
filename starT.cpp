@@ -12,11 +12,30 @@ void runTests(void);
 // Write starT per specifictions in the lab writeup
 
 string starT(int width, int height)
-{
-  string result = "";
-  result = "stub"; // TODO: remove this line, replace with correct code
-  return result;
-}
+{ string result = "";
+  if ((width < 3) || (height < 2))
+    return result;
+
+  if(width % 2 == 0)
+    return result;
+ 
+  for(int c = 1; c <= width; c++)
+  { result += "*";}
+  result += "\n";
+  
+  int centre = width / 2 + 1;
+
+  for (int r = 2; r <= height; r++)
+  {for(int c = 1; c <= width; c++)
+    {
+      if(c == centre)
+        result += "*";
+      else
+ result += " ";}
+    result += "\n";}return result;}
+
+
+
 
 // Test-Driven Development; check expected results against actual
 
@@ -78,17 +97,21 @@ void assertEquals(string expected, string actual, string message = "")
 int main(int argc, char *argv[])
 {
 
-  // TODO: Add check for parameters
-  // and code to print usage message
+  if (argc != 3)
+  {
+    cerr << "Usage: " << argv[0] << " width height" << endl;
+    exit(1);
+  }
 
-  // TODO: Add code to get width and height from command line args
-  // code that checks if they are both -1; if so, call runTests()
-  // then exit.
-
-  runTests();
-
-  // TODO: Add code that calls the starT function and prints
-  // the result on cout (without an extra newline)
-
+  int width = stoi(argv[1]);
+  int height = stoi(argv[2]);
+  // If the program is executed with parameters -1 -1 unit test
+  // the starL() function using our automated test framework
+  if (width == -1 && height == -1)
+  {
+    runTests();
+    exit(0);
+  }
+  cout << starT(width, height);
   return 0;
 }
