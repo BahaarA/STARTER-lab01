@@ -10,17 +10,30 @@ string starX(int width);
 void runTests(void);
 
 string starX(int width)
-{string result = "";
+{
+    string result = "";
 
-  if (width < 3 || width % 2 == 0) 
-  {return result;}
-  for(int a = 0; a < width; ++a){
-    for(int b = 0; b < width; ++b){
-      if (b == a || b == (width - a - 1)) {
-        result += "*";}
-      else {
-        result += " ";}}
-    result += "\n";}return result;
+    if (width < 3 || width % 2 == 0) 
+    {
+        return result;
+    }
+    
+    for(int a = 0; a < width; ++a)
+    {
+        for(int b = 0; b < width; ++b)
+        {
+            if (b == a || b == (width - a - 1)) 
+            {
+                result += "*";
+            }
+            else 
+            {
+                result += " ";
+            }
+        }
+        result += "\n";
+    }
+    return result;
 }
 
 
@@ -77,21 +90,19 @@ void assertEquals(string expected, string actual, string message = "")
 int main(int argc, char *argv[])
 {
 
-  if (argc != 3)
-  {
-    cerr << "Usage: " << argv[0] << " width height" << endl;
-    exit(1);
-  }
+    if (argc != 2)
+    {
+        cerr << "Usage: " << argv[0] << " width" << endl;
+        exit(1);
+    }
 
-  int width = stoi(argv[1]);
-
-  // If the program is executed with parameters -1 -1 unit test
-  // the starL() function using our automated test framework
-  if (width == -1)
-  {
-    runTests();
-    exit(0);
-  }
-  cout << starX(width);
-  return 0;
+    int width = stoi(argv[1]);
+    if (width == -1)
+    {
+        runTests();
+        exit(0);
+    }
+    cout << starX(width);
+    return 0;
 }
+
