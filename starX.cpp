@@ -10,19 +10,9 @@ string starX(int width);
 void runTests(void);
 
 string starX(int width)
-{string result = "";
-
-  if (width < 3 || width % 2 == 0) 
-  {return result;}
-  for(int a = 0; a < width; ++a){
-    for(int b = 0; b < width; ++b){
-      if (b == a || b == (width - a - 1)) {
-        result += "*";}
-      else {
-        result += " ";}}
-    result += "\n";}return result;
+{
+  return "stub";
 }
-
 
 // Test-Driven Development;
 // check expected results against actual
@@ -76,22 +66,5 @@ void assertEquals(string expected, string actual, string message = "")
 
 int main(int argc, char *argv[])
 {
-
-  if (argc != 3)
-  {
-    cerr << "Usage: " << argv[0] << " width height" << endl;
-    exit(1);
-  }
-
-  int width = stoi(argv[1]);
-  int height = stoi(argv[2]);
-  // If the program is executed with parameters -1 -1 unit test
-  // the starL() function using our automated test framework
-  if (width == -1 && height == -1)
-  {
-    runTests();
-    exit(0);
-  }
-  cout << starX(width, height);
   return 0;
 }
