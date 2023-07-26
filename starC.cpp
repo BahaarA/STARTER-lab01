@@ -14,23 +14,24 @@ void runTests(void);
 string starC(int width, int height)
 {
     string result = "";
+    int a, b;
 
-    if ((width < 2) || (height < 3))
-        return result;
+    if (width < 2 || height < 3){ return result;}
 
-    for (int i = 0; i < width; ++i) 
-        result += "*";
+    for (b = 0; b < width; b++){result += "*";}
+
     result += "\n";
-    for (int i = 2; i < height; ++i){
-        result += "*";
-        for (int j = 2; j < width; ++j) {            result += (i == height - 2) ? "*" : " ";}
-        result += "\n"; }
 
-    for (int i = 0; i < width; ++i)
-    result += "*";
+    for (a = 0; a < height - 2; a++){result += "*";
+        for (b = 0; b < width - 1; b++)
+            result += " ";
+        result += "\n";}
+  
+    for (b = 0; b < width; b++){result += "*";}
+
     result += "\n";
- return result;}
-
+    return result;
+} 
 // Test-Driven Development; check expected results against actual
 
 void runTests(void)
