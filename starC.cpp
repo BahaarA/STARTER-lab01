@@ -11,30 +11,27 @@ string starC(int width, int height);
 void runTests(void);
 
 // Write starC per specifictions in the lab writeup
-
 string starC(int width, int height)
-{string result = "";
+{
+    string result = "";
+    int a, b;
 
-  if ((width < 3) || (height < 3))
-    return result;
+    if ((width < 3) || (height < 3))
+        return result;
+    for (a = 0; a < width; ++a)
+      	  result += "*";
+    result += "\n";
+    for (a = 2; a < height; ++a)
+    {result += "*";
+        for (b = 2; b < width; ++b)
+            result += " ";
+        	result += "*\n"; }
+    for (a = 0; a < width; ++a)
+        result += "*";
+    result += "\n";
 
+    return result;}
 
-
-int i;
-  for (i = 0; i < width; ++i) 
-    result += "*";
-  result += "\n";
-  for (int i = 2; i < height; ++i)
-
-
-  {result += "*";
-    for (int j = 2; j < width; ++j)result += " ";
-    result += "\n"; }
-
-  for (int i = 0; i < width; ++i)result += "*";
-  result += "\n";
-  return result;
-}
 
 // Test-Driven Development; check expected results against actual
 
