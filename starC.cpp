@@ -23,14 +23,13 @@ string starC(int width, int height)
     result += "\n";
     for (int i = 2; i < height; ++i){
         result += "*";
-        for (int j = 2; j < width; ++j) {            result += (j == 2) ? " " : "*";}
+        for (int j = 2; j < width; ++j) {            result += (i == height - 1) ? "*" : " ";}
         result += "\n"; }
 
     for (int i = 0; i < width; ++i)
     result += "*";
     result += "\n";
  return result;}
-
 
 // Test-Driven Development; check expected results against actual
 
