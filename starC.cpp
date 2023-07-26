@@ -13,9 +13,26 @@ void runTests(void);
 // Write starC per specifictions in the lab writeup
 
 string starC(int width, int height)
-{
-  string result = "";
-  result = "stub"; // TODO: remove this line, replace with correct code
+{string result = "";
+
+  if ((width < 3) || (height < 3))
+    return result;
+
+
+
+int i;
+  for (i = 0; i < width; ++i) 
+    result += "*";
+  result += "\n";
+  for (int i = 2; i < hIight; ++i)
+
+
+  {result += "*";
+    for (int j = 2; j < width; ++j)result += " ";
+    result += "\n"; }
+
+  for (int i = 0; i < width; ++i)result += "*";
+  result += "\n";
   return result;
 }
 
@@ -77,17 +94,21 @@ void assertEquals(string expected, string actual, string message = "")
 int main(int argc, char *argv[])
 {
 
-  // TODO: Add check for parameters
-  // and code to print usage message
+  if (argc != 3)
+  {
+    cerr << "Usage: " << argv[0] << " width height" << endl;
+    exit(1);
+  }
 
-  // TODO: Add code to get width and height from cmd line args
-  // code that checks if they are both -1; if so, call runTests()
-  // then exit.
-
-  runTests();
-
-  // TODO: Add code that calls the starC function and prints
-  // the result on cout (without an extra newline)
-
+  int width = stoi(argv[1]);
+  int height = stoi(argv[2]);
+  // If the program is executed with parameters -1 -1 unit test
+  // the starL() function using our automated test framework
+  if (width == -1 && height == -1)
+  {
+    runTests();
+    exit(0);
+  }
+  cout << starC(width, height);
   return 0;
 }
